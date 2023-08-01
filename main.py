@@ -1,8 +1,7 @@
 from src.power_consumption import power_consumption
-from cutecharts.charts import Line
+
 
 def main():
-    
     total_mass = 90
     wind_direction = 310
     rider_direcetion = 340
@@ -20,7 +19,7 @@ def main():
     final_time = 100
     initial_time = 43.58
     drivetrain_efficiency = 0.976
-    
+
     results = power_consumption(
         v_G=ground_velocity,
         m_T=total_mass,
@@ -41,18 +40,7 @@ def main():
         t_f=final_time,
     )
 
-
-    # Plot
-    chart = Line(title="Power consumption over velocity")
-    chart.set_options(
-        x_label="Velocity [m/s]",
-        y_label="Power [W]"
-    )
-    
-
-
-    chart.add_series("series-A", [57, 134, 137, 129, 145, 60, 49])
-    chart.add_series("series-B", [114, 55, 27, 101, 125, 27, 105])
+    return results
 
 if __name__ == "__main__":
     main()
